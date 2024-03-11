@@ -3,6 +3,7 @@
 <head>
     <title>Mouse Coordinates Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- מבטיח שהעמוד יותאם לגודל המסך -->
     <style>
         body, html {
             height: 100%;
@@ -44,10 +45,6 @@
 
         /* Media Queries להתאמה למכשירים ניידים */
         @media only screen and (max-width: 600px) {
-            body, html {
-                background-color: white; /* או כל צבע רקע שאתה מעדיף */
-            }
-
             .logo {
                 width: 150px; /* גודל הלוגו מותאם למסכים קטנים יותר */
             }
@@ -55,6 +52,10 @@
             #startButton {
                 padding: 8px 16px; /* גודל הכפתור מותאם לנוחות במכשירים ניידים */
                 font-size: 14px; /* גודל הטקסט מותאם לקריאות טובה יותר במכשירים ניידים */
+            }
+
+            body, html {
+                flex-direction: column; /* מסדר מחדש את האלמנטים בצורה ורטיקלית לנוחות טובה יותר */
             }
         }
     </style>
