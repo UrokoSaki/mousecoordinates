@@ -3,7 +3,7 @@
 <head>
     <title>Mouse Coordinates Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- מבטיח שהעמוד יותאם לגודל המסך -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures page is optimized for device screen sizes -->
     <style>
         body, html {
             height: 100%;
@@ -13,7 +13,7 @@
             align-items: center;
             flex-direction: column;
             font-family: Arial, sans-serif;
-            background-color: white; /* מוסיף רקע בהיר כברירת מחדל */
+            background-color: white; /* Default bright background */
         }
 
         #startButton {
@@ -43,25 +43,26 @@
             height: auto;
         }
 
-        /* Media Queries להתאמה למכשירים ניידים */
+        /* Media Queries for mobile device adjustments */
         @media only screen and (max-width: 600px) {
             .logo {
-                width: 150px; /* גודל הלוגו מותאם למסכים קטנים יותר */
+                width: 150px; /* Adjust logo size for smaller screens */
             }
 
             #startButton {
-                padding: 8px 16px; /* גודל הכפתור מותאם לנוחות במכשירים ניידים */
-                font-size: 14px; /* גודל הטקסט מותאם לקריאות טובה יותר במכשירים ניידים */
+                padding: 8px 16px; /* Adjust button size for mobile convenience */
+                font-size: 14px; /* Adjust text size for better readability on mobile devices */
             }
 
             body, html {
-                flex-direction: column; /* מסדר מחדש את האלמנטים בצורה ורטיקלית לנוחות טובה יותר */
+                flex-direction: column; /* Realign elements vertically for better mobile experience */
+                background-color: #f0f0f0; /* Change background color when accessed from a mobile device */
             }
         }
     </style>
 </head>
 <body>
-    <img src="Logo.jpg" class="logo" alt="Logo"> <!-- ודא שנתיב התמונה נכון -->
+    <img src="Logo.jpg" class="logo" alt="Logo"> <!-- Ensure the image path is correct -->
     <button id="startButton" onclick="startTracking()">Track your mouse coordinates</button>
     <div id="coordinatesDisplay">
         <p id="X">X-coordinate:</p>
