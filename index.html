@@ -12,6 +12,7 @@
             align-items: center;
             flex-direction: column;
             font-family: Arial, sans-serif;
+            background-color: white; /* מוסיף רקע בהיר כברירת מחדל */
         }
 
         #startButton {
@@ -40,10 +41,26 @@
             width: 250px; /* Adjusted to make the logo larger */
             height: auto;
         }
+
+        /* Media Queries להתאמה למכשירים ניידים */
+        @media only screen and (max-width: 600px) {
+            body, html {
+                background-color: white; /* או כל צבע רקע שאתה מעדיף */
+            }
+
+            .logo {
+                width: 150px; /* גודל הלוגו מותאם למסכים קטנים יותר */
+            }
+
+            #startButton {
+                padding: 8px 16px; /* גודל הכפתור מותאם לנוחות במכשירים ניידים */
+                font-size: 14px; /* גודל הטקסט מותאם לקריאות טובה יותר במכשירים ניידים */
+            }
+        }
     </style>
 </head>
 <body>
-    <img src="Logo.jpg" class="logo" alt="Logo"> <!-- Make sure the 'src' path is correct -->
+    <img src="Logo.jpg" class="logo" alt="Logo"> <!-- ודא שנתיב התמונה נכון -->
     <button id="startButton" onclick="startTracking()">Track your mouse coordinates</button>
     <div id="coordinatesDisplay">
         <p id="X">X-coordinate:</p>
