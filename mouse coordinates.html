@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Coordinates Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        #startButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #startButton:hover {
+            background-color: #0056b3;
+        }
+
+        #coordinatesDisplay {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .icon-mouse {
+            margin-bottom: 20px;
+            font-size: 48px; /* Makes the icon larger */
+        }
+    </style>
+</head>
+<body>
+    <i class="fas fa-mouse-pointer icon-mouse"></i> <!-- Update with your chosen icon class -->
+    <button id="startButton" onclick="startTracking()">Track your mouse coordinates</button>
+    <div id="coordinatesDisplay">
+        <p id="X">X-coordinate:</p>
+        <p id="Y">Y-coordinate:</p>
+    </div>
+
+    <script>
+        function startTracking() {
+            document.getElementById("coordinatesDisplay").style.display = "block";
+            document.onmousemove = function(event) {
+                var x = event.clientX;
+                var y = event.clientY;
+                document.getElementById("X").innerText = "X-coordinate: " + x;
+                document.getElementById("Y").innerText = "Y-coordinate: " + y;
+            };
+        }
+    </script>
+</body>
+</html>
