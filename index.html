@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Mouse Coordinates Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures page is optimized for device screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body, html {
             height: 100%;
@@ -12,11 +12,11 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            font-family: Arial, sans-serif;
-            background-color: white; /* Keeps background consistently white */
+            font-family: 'Arial', sans-serif;
+            background-color: white;
         }
 
-        #startButton {
+        .button {
             padding: 10px 20px;
             font-size: 16px;
             color: white;
@@ -25,57 +25,41 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.2s;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        #startButton:hover {
+        .button:hover {
             background-color: #0056b3;
         }
 
-        #coordinatesDisplay {
+        #coordinatesDisplay, #clickSelectionInstructions {
             display: none;
             margin-top: 20px;
             text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
             margin-bottom: 20px;
-            width: 250px; /* Adjusted to make the logo larger */
+            width: 250px;
             height: auto;
         }
 
-        /* Media Queries for mobile device adjustments */
         @media only screen and (max-width: 600px) {
             .logo {
-                width: 150px; /* Adjust logo size for smaller screens */
+                width: 150px;
             }
 
-            #startButton {
-                padding: 8px 16px; /* Adjust button size for mobile convenience */
-                font-size: 14px; /* Adjust text size for better readability on mobile devices */
+            .button {
+                padding: 8px 16px;
+                font-size: 14px;
             }
         }
     </style>
-</head>
-<body>
-    <img src="Logo.jpg" class="logo" alt="Logo"> <!-- Ensure the image path is correct -->
-    <button id="startButton" onclick="startTracking()">Track your mouse coordinates</button>
-    <div id="coordinatesDisplay">
-        <p id="X">X-coordinate:</p>
-        <p id="Y">Y-coordinate:</p>
-    </div>
-
-    <script>
-        function startTracking() {
-            document.getElementById("coordinatesDisplay").style.display = "block";
-            document.onmousemove = function(event) {
-                var x = event.clientX;
-                var y = event.clientY;
-                document.getElementById("X").innerText = "X-coordinate: " + x;
-                document.getElementById("Y").innerText = "Y-coordinate: " + y;
-            };
-        }
-    </script>
-
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK"></script>
     <script>
@@ -84,6 +68,62 @@
       gtag('js', new Date());
 
       gtag('config', 'G-PL3BED75VK');
+    </script>
+</head>
+<body>
+    <img src="Logo.jpg" class="logo" alt="Logo">
+    <button id="trackMovementButton" class="button">Track Mouse Movement</button>
+    <button id="selectByClickButton" class="button">Select Coordinates by Click</button>
+    <div id="coordinatesDisplay">
+        <p id="X">X-coordinate:</p>
+        <p id="Y">Y-coordinate:</p>
+    </div>
+    <div id="clickSelectionInstructions">Click anywhere to select coordinates for download.</div>
+    <button id="downloadButton" class="button" style="display:none;">Download Selected Coordinates</button>
+
+    <script>
+        let coordinates = [];
+        let selectingCoordinates = false; // Flag to control when to capture clicks for coordinates
+    
+        document.getElementById('trackMovementButton').addEventListener('click', function() {
+            document.getElementById("coordinatesDisplay").style.display = "block";
+            document.addEventListener('mousemove', function(event) {
+                document.getElementById("X").innerText = "X-coordinate: " + event.clientX;
+                document.getElementById("Y").innerText = "Y-coordinate: " + event.clientY;
+            });
+        });
+    
+        document.getElementById('selectByClickButton').addEventListener('click', function() {
+            selectingCoordinates = true; // Enable coordinate selection mode
+            document.getElementById("clickSelectionInstructions").style.display = "block";
+            document.getElementById("downloadButton").style.display = "block";
+        });
+    
+        document.addEventListener('click', function(event) {
+            if (selectingCoordinates && event.target !== document.getElementById('downloadButton')) {
+                const x = event.clientX;
+                const y = event.clientY;
+                coordinates.push({x, y});
+                console.log(`Selected coordinates: X=${x}, Y=${y}`);
+                document.getElementById("coordinatesDisplay").style.display = "block";
+                document.getElementById("X").innerText = "Selected X-coordinate: " + x;
+                document.getElementById("Y").innerText = "Selected Y-coordinate: " + y;
+            }
+        });
+    
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            let csvContent = "data:text/csv;charset=utf-8,X Coordinate,Y Coordinate\n";
+            coordinates.forEach(function(coord) {
+                csvContent += `${coord.x},${coord.y}\n`;
+            });
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "selected_coordinates.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
     </script>
 </body>
 </html>
