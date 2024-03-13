@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
     <title>Mouse Coordinates Tracker</title>
+    <!-- Meta Description to explain the page's content for SEO -->
+    <meta name="description" content="Track your mouse movements and select coordinates by clicking, allowing for the download of selected coordinates as a CSV file.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body, html {
-            width: 100%; /* Ensure full width */
-            min-height: 100%; /* Minimum height to fill the screen */
+            width: 100%;
+            min-height: 100%;
             margin: 0;
-            padding: 0; /* Added padding reset */
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             font-family: 'Arial', sans-serif;
             background-color: white;
-            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            box-sizing: border-box;
         }
 
         .button {
@@ -47,7 +49,7 @@
 
         .logo {
             margin-bottom: 20px;
-            max-width: 100%; /* Ensure logo is responsive and does not overflow */
+            max-width: 100%;
             height: auto;
         }
 
@@ -62,7 +64,6 @@
             }
         }
     </style>
-    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK"></script>
     <script>
@@ -74,7 +75,8 @@
     </script>
 </head>
 <body>
-    <img src="Logo.jpg" class="logo" alt="Logo">
+    <h1>Mouse Coordinates Tracker</h1> <!-- H1 heading for better SEO -->
+    <img src="Logo.jpg" class="logo" alt="Tracking Mouse Movement Logo" /> <!-- Alt text for SEO -->
     <button id="trackMovementButton" class="button">Track Mouse Movement</button>
     <button id="selectByClickButton" class="button">Select Coordinates by Click</button>
     <div id="coordinatesDisplay">
@@ -86,7 +88,7 @@
 
     <script>
         let coordinates = [];
-        let selectingCoordinates = false; // Flag to control when to capture clicks for coordinates
+        let selectingCoordinates = false;
     
         document.getElementById('trackMovementButton').addEventListener('click', function() {
             document.getElementById("coordinatesDisplay").style.display = "block";
@@ -97,7 +99,7 @@
         });
     
         document.getElementById('selectByClickButton').addEventListener('click', function() {
-            selectingCoordinates = true; // Enable coordinate selection mode
+            selectingCoordinates = true;
             document.getElementById("clickSelectionInstructions").style.display = "block";
             document.getElementById("downloadButton").style.display = "block";
         });
@@ -128,7 +130,6 @@
             document.body.removeChild(link);
         });
     </script>
-
     <!-- Google Adsense script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721103073708194"
          crossorigin="anonymous"></script>
