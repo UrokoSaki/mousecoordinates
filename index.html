@@ -2,16 +2,11 @@
 <html lang="en">
 <head>
     <title>Mouse Coordinates Tracker</title>
-    <!-- Meta Description to explain the page's content for SEO -->
     <meta name="description" content="Track your mouse movements and select coordinates by clicking, allowing for the download of selected coordinates as a CSV file.">
-    <!-- Responsive Design Tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Charset for proper text encoding -->
     <meta charset="UTF-8">
-    <!-- SEO Tags -->
     <meta name="keywords" content="Mouse, Coordinates, Tracker, CSV, Download">
     <meta name="author" content="Benny Acka">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body, html {
@@ -32,17 +27,23 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
             background-color: transparent;
             color: #2196F3;
-            padding: 10px 20px;
+            padding: 10px;
             text-align: center;
             font-size: 24px;
             z-index: 1000;
         }
 
+        .description {
+            margin: 80px 20px 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #d1d1d1;
+            width: 80%;
+        }
+
         .content {
-            margin-top: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -75,6 +76,34 @@
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2b2b2b;
+            color: #d1d1d1;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #2196F3;
+            text-decoration: none;
+            padding: 0 5px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Placeholder for AdSense ad (adjust as needed) */
+        .ad-container {
+            text-align: center;
+            margin: 20px 0;
+        }
     </style>
     <!-- Google tag (gtag.js) for Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK"></script>
@@ -85,11 +114,22 @@
 
       gtag('config', 'G-PL3BED75VK');
     </script>
+    <!-- Placeholder for Google AdSense (you will need to replace this with your actual AdSense code) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-XXXXXXXXXXXXXX", // Your AdSense Publisher ID
+        enable_page_level_ads: true
+      });
+    </script>
 </head>
 <body>
     <header>
         <h1>Mouse Coordinates Tracker <i class="fas fa-mouse"></i></h1>
     </header>
+    <div class="description">
+        Welcome to the Mouse Coordinates Tracker! This interactive tool allows you to track your mouse movements in real-time, select specific coordinates on the screen by clicking, and download these selected coordinates as a CSV file. Start by choosing an option below.
+    </div>
     <div class="content">
         <button id="trackMovementButton" class="button">Track Mouse Movement</button>
         <button id="selectByClickButton" class="button">Select Coordinates by Click</button>
@@ -100,6 +140,16 @@
         <div id="clickSelectionInstructions">Click anywhere to select coordinates for download.</div>
         <button id="downloadButton" class="button" style="display:none;">Download Selected Coordinates</button>
     </div>
+    <!-- Placeholder for an AdSense ad -->
+    <div class="ad-container">
+        <!-- Your AdSense ad code goes here -->
+    </div>
+    <footer class="footer">
+        <p>
+            <a href="/privacy-policy.html">Privacy Policy</a> | 
+            <a href="/terms-of-service.html">Terms of Service</a>
+        </p>
+    </footer>
 
     <script>
         let coordinates = [];
