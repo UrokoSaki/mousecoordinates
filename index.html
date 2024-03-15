@@ -27,6 +27,7 @@
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
             background-color: transparent;
             color: #2196F3;
             padding: 10px;
@@ -41,6 +42,7 @@
             font-size: 16px;
             color: #d1d1d1;
             width: 80%;
+            padding: 0 10px;
         }
 
         .content {
@@ -81,6 +83,7 @@
             position: fixed;
             bottom: 0;
             left: 0;
+            right: 0;
             width: 100%;
             background-color: #2b2b2b;
             color: #d1d1d1;
@@ -97,6 +100,22 @@
 
         .footer a:hover {
             text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            header, .description, .footer {
+                font-size: 14px;
+            }
+
+            .button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .description {
+                margin: 60px 10px 10px;
+                font-size: 14px;
+            }
         }
 
         /* Placeholder for AdSense ad (adjust as needed) */
