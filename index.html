@@ -8,122 +8,7 @@
     <meta name="keywords" content="Mouse Coordinates, Mouse, Coordinates, Tracker, CSV, Download">
     <meta name="author" content="Benny Acka">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            box-sizing: border-box;
-            color: #d1d1d1;
-            background: linear-gradient(to bottom, #2b2b2b, #3c3c3c, #2b2b2b);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: transparent;
-            color: #2196F3;
-            padding: 10px;
-            text-align: center;
-            font-size: 24px;
-            z-index: 1000;
-        }
-
-        .description {
-            margin: 80px 20px 20px;
-            text-align: center;
-            font-size: 16px;
-            color: #d1d1d1;
-            width: 80%;
-            padding: 0 10px;
-        }
-
-        .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .button {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #2b2b2b;
-            background-color: #2196F3;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s, color 0.2s;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .button:hover {
-            background-color: #1976D2;
-            color: #ffffff;
-        }
-
-        #coordinatesDisplay, #clickSelectionInstructions {
-            display: none;
-            margin-top: 20px;
-            text-align: center;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            background-color: #2b2b2b;
-            color: #d1d1d1;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 14px;
-        }
-
-        .footer a {
-            color: #2196F3;
-            text-decoration: none;
-            padding: 0 5px;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media screen and (max-width: 768px) {
-            header, .description, .footer {
-                font-size: 14px;
-            }
-
-            .button {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
-
-            .description {
-                margin: 60px 10px 10px;
-                font-size: 14px;
-            }
-        }
-
-        /* Placeholder for AdSense ad (adjust as needed) */
-        .ad-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
     <!-- Google tag (gtag.js) for Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK"></script>
     <script>
@@ -171,47 +56,59 @@
     </footer>
 
     <script>
-        let coordinates = [];
-        let selectingCoordinates = false;
+        document.addEventListener('DOMContentLoaded', () => {
+            const trackMovementButton = document.getElementById('trackMovementButton');
+            const selectByClickButton = document.getElementById('selectByClickButton');
+            const coordinatesDisplay = document.getElementById('coordinatesDisplay');
+            const clickSelectionInstructions = document.getElementById('clickSelectionInstructions');
+            const downloadButton = document.getElementById('downloadButton');
+            const xCoord = document.getElementById('X');
+            const yCoord = document.getElementById('Y');
 
-        document.getElementById('trackMovementButton').addEventListener('click', function() {
-            document.getElementById("coordinatesDisplay").style.display = "block";
-            document.addEventListener('mousemove', function(event) {
-                document.getElementById("X").innerText = "X-coordinate: " + event.clientX;
-                document.getElementById("Y").innerText = "Y-coordinate: " + event.clientY;
+            let coordinates = [];
+            let selectingCoordinates = false;
+
+            trackMovementButton.addEventListener('click', () => {
+                coordinatesDisplay.style.display = "block";
+                document.addEventListener('mousemove', trackMouse);
             });
-        });
 
-        document.getElementById('selectByClickButton').addEventListener('click', function() {
-            selectingCoordinates = true;
-            document.getElementById("clickSelectionInstructions").style.display = "block";
-            document.getElementById("downloadButton").style.display = "block";
-        });
+            selectByClickButton.addEventListener('click', () => {
+                selectingCoordinates = true;
+                clickSelectionInstructions.style.display = "block";
+                downloadButton.style.display = "block";
+            });
 
-        document.addEventListener('click', function(event) {
-            if (selectingCoordinates && event.target !== document.getElementById('downloadButton')) {
-                const x = event.clientX;
-                const y = event.clientY;
-                coordinates.push({x, y});
-                console.log(`Selected coordinates: X=${x}, Y=${y}`);
-                document.getElementById("coordinatesDisplay").style.display = "block";
-                document.getElementById("X").innerText = "Selected X-coordinate: " + x;
-                document.getElementById("Y").innerText = "Selected Y-coordinate: " + y;
+            document.addEventListener('click', (event) => {
+                if (selectingCoordinates && event.target !== downloadButton) {
+                    const x = event.clientX;
+                    const y = event.clientY;
+                    coordinates.push({x, y});
+                    console.log(`Selected coordinates: X=${x}, Y=${y}`);
+                    coordinatesDisplay.style.display = "block";
+                    xCoord.innerText = "Selected X-coordinate: " + x;
+                    yCoord.innerText = "Selected Y-coordinate: " + y;
+                }
+            });
+
+            downloadButton.addEventListener('click', () => {
+                let csvContent = "data:text/csv;charset=utf-8,X Coordinate,Y Coordinate\n";
+                coordinates.forEach(function(coord) {
+                    csvContent += `${coord.x},${coord.y}\n`;
+                });
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "selected_coordinates.csv");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+
+            function trackMouse(event) {
+                xCoord.innerText = "X-coordinate: " + event.clientX;
+                yCoord.innerText = "Y-coordinate: " + event.clientY;
             }
-        });
-
-        document.getElementById('downloadButton').addEventListener('click', function() {
-            let csvContent = "data:text/csv;charset=utf-8,X Coordinate,Y Coordinate\n";
-            coordinates.forEach(function(coord) {
-                csvContent += `${coord.x},${coord.y}\n`;
-            });
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "selected_coordinates.csv");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         });
     </script>
 </body>
