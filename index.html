@@ -19,11 +19,8 @@
       gtag('config', 'G-PL3BED75VK');
     </script>
 
-    <!-- Google AdSense - Loaded only after consent -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-            data-ad-client="ca-pub-4721103073708194"
-            crossorigin="anonymous"
-            id="adsense-script"></script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721103073708194" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -52,7 +49,7 @@
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
         <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
+             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
 
@@ -117,34 +114,6 @@
                 xCoord.innerText = "X-coordinate: " + event.clientX;
                 yCoord.innerText = "Y-coordinate: " + event.clientY;
             }
-        });
-    </script>
-    
-    <!-- Cookie Consent Banner -->
-    <script>
-        window.cookieconsent.initialise({
-          "palette": {
-            "popup": {
-              "background": "#000"
-            },
-            "button": {
-              "background": "#f1d600"
-            }
-          },
-          "theme": "classic",
-          "content": {
-            "message": "This website uses cookies to ensure you get the best experience on our website.",
-            "dismiss": "Got it!",
-            "link": "Learn more",
-            "href": "/privacy-policy.html"
-          },
-          "onStatusChange": function(status) {
-            if (status === 'allow') {
-              // Initialize Google AdSense or other tracking codes
-              const adsenseScript = document.getElementById('adsense-script');
-              adsenseScript.src = adsenseScript.src; // Reload the script
-            }
-          }
         });
     </script>
 </body>
