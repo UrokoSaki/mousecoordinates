@@ -1,21 +1,31 @@
-let coordinates = [];
-let selectingCoordinates = false;
-let mouseMoveListener;
+document.addEventListener('DOMContentLoaded', (event) => {
+    let coordinates = [];
+    let selectingCoordinates = false;
 
-window.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('trackMovementButton').addEventListener('click', function() {
-        document.getElementById("coordinatesDisplay").style.display = "block";
-        if (mouseMoveListener) {
-            document.removeEventListener('mousemove', mouseMoveListener);
-        }
-        mouseMoveListener = showMouseCoordinates;
-        document.addEventListener('mousemove', mouseMoveListener);
+        const coordinatesDisplay = document.getElementById("coordinatesDisplay");
+        coordinatesDisplay.style.display = "block";
+        document.addEventListener('mousemove', function(event) {
+            document.getElementById("X").innerText = "X-coordinate: " + event.clientX;
+            document.getElementById("Y").innerText = "Y-coordinate: " + event.clientY;
+        });
     });
 
     document.getElementById('selectByClickButton').addEventListener('click', function() {
         selectingCoordinates = true;
         document.getElementById("clickSelectionInstructions").style.display = "block";
         document.getElementById("downloadButton").style.display = "block";
+    });
+
+    document.addEventListener('click', function(event) {
+        if (selectingCoordinates && event.target !== document.getElementById('downloadButton')) {
+            const x = event.clientX;
+            const y = event.clientY;
+            coordinates.push({ x, y });
+            document.getElementById("coordinatesDisplay").style.display = "block";
+            document.getElementById("X").innerText = "Selected X-coordinate: " + x;
+            document.getElementById("Y").innerText = "Selected Y-coordinate: " + y;
+        }
     });
 
     document.getElementById('downloadButton').addEventListener('click', function() {
@@ -31,21 +41,4 @@ window.addEventListener('DOMContentLoaded', (event) => {
         link.click();
         document.body.removeChild(link);
     });
-
-    document.addEventListener('click', function(event) {
-        if (selectingCoordinates && event.target !== document.getElementById('downloadButton')) {
-            const x = event.clientX;
-            const y = event.clientY;
-            coordinates.push({x, y});
-            console.log(`Selected coordinates: X=${x}, Y=${y}`);
-            document.getElementById("coordinatesDisplay").style.display = "block";
-            document.getElementById("X").innerText = "Selected X-coordinate: " + x;
-            document.getElementById("Y").innerText = "Selected Y-coordinate: " + y;
-        }
-    });
 });
-
-function showMouseCoordinates(event) {
-    document.getElementById("X").innerText = "X-coordinate: " + event.clientX;
-    document.getElementById("Y").innerText = "Y-coordinate: " + event.clientY;
-}
