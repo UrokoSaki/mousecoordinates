@@ -32,19 +32,19 @@
             </ul>
         </nav>
     </header>
-    <main class="center-content">
+    <main class="center-content" style="margin-top: 50px;"> <!-- הוספת מרווח עליון -->
         <div class="description">
             <h2>Mouse Coordinates Tracker Tool</h2>
             <p>Track your mouse movements and download the coordinates as a CSV file.</p>
             <div class="content">
                 <button id="trackMovementButton" class="button">Track Mouse Movement</button>
                 <button id="selectByClickButton" class="button">Select Coordinates by Click</button>
+                <button id="downloadButton" class="button" style="display:none;">Download Selected Coordinates</button>
                 <div id="coordinatesDisplay" style="display:none;">
                     <p id="X">X-coordinate:</p>
                     <p id="Y">Y-coordinate:</p>
                 </div>
                 <div id="clickSelectionInstructions" style="display:none;">Click anywhere to select coordinates for download.</div>
-                <button id="downloadButton" class="button" style="display:none;">Download Selected Coordinates</button>
             </div>
         </div>
     </main>
