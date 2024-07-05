@@ -1,259 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Mouse Coordinates Tracker - Track and Download Mouse Movements</title>
-    <meta name="description" content="Track your mouse movements and select coordinates by clicking, allowing for the download of selected coordinates as a CSV file. Learn how to use this tool effectively to get mouse coordinates.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Mouse Coordinates Tracker</title>
     <meta charset="UTF-8">
-    <meta name="keywords" content="Mouse Coordinates, Coordinates, Final Mouse, Computer Keyboard, Chrome App, Mouse Tracker, mouse coordinates javascript, mouse coordinate finder">
-    <meta name="author" content="Benny Acka">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            box-sizing: border-box;
-            color: #d1d1d1;
-            background: linear-gradient(to bottom, #2b2b2b, #3c3c3c, #2b2b2b);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: transparent;
-            color: #2196F3;
-            padding: 10px;
-            text-align: center;
-            font-size: 24px;
-            z-index: 1000;
-        }
-
-        .description {
-            margin: 80px 20px 20px;
-            text-align: center;
-            font-size: 16px;
-            color: #d1d1d1;
-            width: 80%;
-            padding: 0 10px;
-        }
-
-        .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .button {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #2b2b2b;
-            background-color: #2196F3;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s, color 0.2s;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .button:hover {
-            background-color: #1976D2;
-            color: #ffffff;
-        }
-
-        #coordinatesDisplay, #clickSelectionInstructions {
-            display: none;
-            margin-top: 20px;
-            text-align: center;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            background-color: #2b2b2b;
-            color: #d1d1d1;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 14px;
-        }
-
-        .footer a {
-            color: #2196F3;
-            text-decoration: none;
-            padding: 0 5px;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media screen and (max-width: 768px) {
-            header, .description, .footer {
-                font-size: 14px;
-            }
-
-            .button {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
-
-            .description {
-                margin: 60px 10px 10px;
-                font-size: 14px;
-            }
-        }
-
-        /* Placeholder for AdSense ad (adjust as needed) */
-        .adsbygoogle {
-            display: block;
-            text-align: center;
-            margin: 20px 0;
-            width: 100%;
-        }
-    </style>
-    <!-- Google tag (gtag.js) for Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PL3BED75VK');
-    </script>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721103073708194" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Mouse Coordinates Tracker <i class="fas fa-mouse"></i></h1>
+        <h1>Mouse Coordinates Tracker</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tool.html">Tool</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
     <div class="description">
-        Welcome to the Mouse Coordinates Tracker! This interactive tool allows you to track your mouse movements in real-time, select specific coordinates on the screen by clicking, and download these selected coordinates as a CSV file. Start by choosing an option below.
+        <h2>Welcome to the Mouse Coordinates Tracker!</h2>
+        <p>This tool allows you to track your mouse movements and download the coordinates as a CSV file.</p>
     </div>
-    <div class="content">
-        <button id="trackMovementButton" class="button">Track Mouse Movement</button>
-        <button id="selectByClickButton" class="button">Select Coordinates by Click</button>
-        <div id="coordinatesDisplay">
-            <p id="X">X-coordinate:</p>
-            <p id="Y">Y-coordinate:</p>
-        </div>
-        <div id="clickSelectionInstructions">Click anywhere to select coordinates for download.</div>
-        <button id="downloadButton" class="button" style="display:none;">Download Selected Coordinates</button>
-    </div>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-4721103073708194"
-         data-ad-slot="1234567890"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
     <footer class="footer">
-        <p>
-            <a href="privacy-policy.html">Privacy Policy</a> | 
-            <a href="terms-of-service.html">Terms of Service</a>
-        </p>
+        <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
     </footer>
-
-    <script>
-        let coordinates = [];
-        let selectingCoordinates = false;
-        let mouseMoveListener;
-
-        window.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('trackMovementButton').addEventListener('click', function() {
-                document.getElementById("coordinatesDisplay").style.display = "block";
-                if (mouseMoveListener) {
-                    document.removeEventListener('mousemove', mouseMoveListener);
-                }
-                mouseMoveListener = showMouseCoordinates;
-                document.addEventListener('mousemove', mouseMoveListener);
-            });
-
-            document.getElementById('selectByClickButton').addEventListener('click', function() {
-                selectingCoordinates = true;
-                document.getElementById("clickSelectionInstructions").style.display = "block";
-                document.getElementById("downloadButton").style.display = "block";
-            });
-
-            document.getElementById('downloadButton').addEventListener('click', function() {
-                let csvContent = "data:text/csv;charset=utf-8,X Coordinate,Y Coordinate\n";
-                coordinates.forEach(function(coord) {
-                    csvContent += `${coord.x},${coord.y}\n`;
-                });
-                const encodedUri = encodeURI(csvContent);
-                const link = document.createElement("a");
-                link.setAttribute("href", encodedUri);
-                link.setAttribute("download", "selected_coordinates.csv");
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
-
-            document.addEventListener('click', function(event) {
-                if (selectingCoordinates && event.target !== document.getElementById('downloadButton')) {
-                    const x = event.clientX;
-                    const y = event.clientY;
-                    coordinates.push({x, y});
-                    console.log(`Selected coordinates: X=${x}, Y=${y}`);
-                    document.getElementById("coordinatesDisplay").style.display = "block";
-                    document.getElementById("X").innerText = "Selected X-coordinate: " + x;
-                    document.getElementById("Y").innerText = "Selected Y-coordinate: " + y;
-                }
-            });
-        });
-
-        function showMouseCoordinates(event) {
-            document.getElementById("X").innerText = "X-coordinate: " + event.clientX;
-            document.getElementById("Y").innerText = "Y-coordinate: " + event.clientY;
-        }
-    </script>
-
-    <!-- Cookie Consent Banner -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-    <script>
-        window.addEventListener('load', function(){
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#3c3c3c",
-                        "text": "#d1d1d1"
-                    },
-                    "button": {
-                        "background": "#2196F3",
-                        "text": "#2b2b2b"
-                    }
-                },
-                "theme": "classic",
-                "content": {
-                    "message": "This website uses cookies to ensure you get the best experience on our website.",
-                    "dismiss": "Got it!",
-                    "link": "Learn more",
-                    "href": "privacy-policy.html"
-                },
-                "onStatusChange": function(status) {
-                    if (status === 'allow') {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>
