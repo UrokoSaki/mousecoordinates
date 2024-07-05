@@ -174,11 +174,16 @@
     <script>
         let coordinates = [];
         let selectingCoordinates = false;
+        let mouseMoveListener;
 
         window.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('trackMovementButton').addEventListener('click', function() {
                 document.getElementById("coordinatesDisplay").style.display = "block";
-                document.addEventListener('mousemove', showMouseCoordinates);
+                if (mouseMoveListener) {
+                    document.removeEventListener('mousemove', mouseMoveListener);
+                }
+                mouseMoveListener = showMouseCoordinates;
+                document.addEventListener('mousemove', mouseMoveListener);
             });
 
             document.getElementById('selectByClickButton').addEventListener('click', function() {
