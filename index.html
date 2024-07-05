@@ -120,9 +120,11 @@
         }
 
         /* Placeholder for AdSense ad (adjust as needed) */
-        .ad-container {
+        .adsbygoogle {
+            display: block;
             text-align: center;
             margin: 20px 0;
+            width: 100%;
         }
     </style>
     <!-- Google tag (gtag.js) for Google Analytics -->
@@ -153,17 +155,15 @@
         <div id="clickSelectionInstructions">Click anywhere to select coordinates for download.</div>
         <button id="downloadButton" class="button" style="display:none;">Download Selected Coordinates</button>
     </div>
-    <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-4721103073708194"
-             data-ad-slot="1234567890"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4721103073708194"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <footer class="footer">
         <p>
             <a href="privacy-policy.html">Privacy Policy</a> | 
