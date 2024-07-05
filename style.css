@@ -38,7 +38,6 @@ nav ul li a:hover {
 }
 
 main {
-    text-align: center;
     padding-top: 20px; /* Added padding for non-centered pages */
 }
 
@@ -48,6 +47,7 @@ main {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    text-align: center; /* Center text content */
 }
 
 .description {
