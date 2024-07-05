@@ -45,43 +45,48 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 20px;
     text-align: center;
 }
 
-.hero {
-    width: 100%;
-    background: url('path/to/hero-image.jpg') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-}
-
 .description {
-    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 16px;
+    color: #d1d1d1;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px;
+.content {
     margin-top: 20px;
+}
+
+.button {
+    padding: 10px 20px;
     font-size: 16px;
     color: #fff;
     background-color: #2196F3;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.2s, transform 0.2s;
+    transition: background-color 0.2s, color 0.2s;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.cta-button:hover {
+.button:hover {
     background-color: #1976D2;
-    transform: scale(1.05);
+    color: #ffffff;
+}
+
+#coordinatesDisplay, #clickSelectionInstructions {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .footer {
@@ -115,9 +120,5 @@ main {
     .description {
         margin: 10px;
         padding: 10px;
-    }
-
-    .hero {
-        height: 40vh;
     }
 }
