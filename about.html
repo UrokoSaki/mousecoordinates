@@ -25,11 +25,17 @@
     <style>
         .content {
             margin-top: 60px; /* Adjust this value as needed */
+            text-align: center; /* Center content */
         }
     </style>
 </head>
 <body>
     <header>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <h1>Mouse Coordinates Tracker</h1>
         <nav>
             <ul>
@@ -49,5 +55,10 @@
     <footer class="footer">
         <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
     </footer>
+    <script>
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
