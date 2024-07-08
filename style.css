@@ -78,6 +78,7 @@ nav ul li a:hover {
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 40px;
+    flex: 1;
 }
 
 .feature {
@@ -125,6 +126,7 @@ nav ul li a:hover {
     text-align: center;
     padding: 10px 0;
     font-size: 14px;
+    margin-top: auto; /* Ensures footer is pushed to the bottom */
 }
 
 .footer a {
