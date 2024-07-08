@@ -18,16 +18,32 @@
     <meta name="twitter:description" content="Use the Mouse Coordinates Tracker tool to track mouse movements and download coordinates as a CSV file.">
     <meta name="twitter:image" content="path/to/logo.jpg">
     
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://yourwebsite.com/tool.html">
+    
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Ensure this style is applied */
         .center-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 250px); /* Adjust this value based on the height of your header and footer */
-            margin-top: -150px; /* Move content slightly upwards if needed */
+            min-height: calc(100vh - 250px);
+            margin-top: -100px;
+        }
+
+        .button {
+            background-color: #2196F3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .button:hover {
+            background-color: #1976D2;
         }
     </style>
 </head>
@@ -55,7 +71,7 @@
                     <p id="Y">Y-coordinate:</p>
                 </div>
                 <div id="clickSelectionInstructions" style="display:none;">Click anywhere to select coordinates for download.</div>
-                <button id="downloadButton" class="button" style="display:none; margin-top: 10px;">Download Selected Coordinates</button>
+                <button id="downloadButton" class="button" style="display:none;">Download Selected Coordinates</button>
             </div>
         </div>
     </main>
