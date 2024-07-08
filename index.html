@@ -31,6 +31,7 @@
             display: flex;
             flex-direction: column;
         }
+
         header {
             background-color: #2b2b2b;
             color: #2196F3;
@@ -43,71 +44,86 @@
             right: 0;
             z-index: 1000;
         }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
         nav {
             display: flex;
             justify-content: center;
             margin: 10px 0;
         }
+
         nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
             display: flex;
         }
+
         nav ul li {
             margin: 0 10px;
         }
+
         nav ul li a {
             color: #2196F3;
             text-decoration: none;
             padding: 5px 10px;
         }
+
         nav ul li a:hover {
             background-color: #2196F3;
             color: #fff;
             border-radius: 5px;
         }
+
         .hero-section {
             text-align: center;
             padding: 100px 20px 50px;
             flex: 1;
         }
+
         .hero-section h2 {
             font-size: 36px;
             margin-bottom: 20px;
         }
+
         .hero-section p {
             font-size: 18px;
             margin-bottom: 20px;
         }
+
         .features {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             margin-top: 40px;
+            flex: 1;
         }
+
         .feature {
             width: 30%;
             min-width: 250px;
             text-align: center;
             margin-bottom: 20px;
         }
-        .feature img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
+
         .feature h3 {
             font-size: 24px;
             margin-bottom: 10px;
         }
+
         .feature p {
             font-size: 16px;
         }
+
         .call-to-action {
             text-align: center;
             margin-top: 40px;
         }
+
         .call-to-action button {
             padding: 15px 30px;
             font-size: 18px;
@@ -117,45 +133,85 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .call-to-action button:hover {
             background-color: #1976D2;
         }
+
         .footer {
             text-align: center;
             padding: 10px 0;
             font-size: 14px;
+            margin-top: auto; /* Ensures footer is pushed to the bottom */
         }
+
         .footer a {
             color: #2196F3;
             text-decoration: none;
             padding: 0 5px;
         }
+
         .footer a:hover {
             text-decoration: underline;
         }
+
         .menu-toggle {
             display: none;
             cursor: pointer;
         }
+
         .menu-toggle div {
             width: 25px;
             height: 3px;
             background-color: #2196F3;
             margin: 5px 0;
         }
+
+        /* Media Queries for Mobile Devices */
         @media (max-width: 768px) {
+            header {
+                font-size: 18px; /* Smaller font size for header */
+            }
+
+            header h1 {
+                font-size: 18px; /* Smaller font size for title */
+            }
+
             nav ul {
                 flex-direction: column;
                 display: none;
             }
+
             nav ul li {
                 margin: 10px 0;
             }
+
             nav.active ul {
                 display: flex;
             }
+
             .menu-toggle {
                 display: block;
+            }
+
+            .hero-section h2 {
+                font-size: 24px; /* Smaller font size for hero section title */
+            }
+
+            .hero-section p {
+                font-size: 16px; /* Smaller font size for hero section text */
+            }
+
+            .feature h3 {
+                font-size: 20px; /* Smaller font size for feature titles */
+            }
+
+            .feature p {
+                font-size: 14px; /* Smaller font size for feature descriptions */
+            }
+
+            .call-to-action button {
+                font-size: 16px; /* Smaller font size for call-to-action button */
             }
         }
     </style>
@@ -181,21 +237,17 @@
         <div class="hero-section">
             <h2>Welcome to the Mouse Coordinates Tracker!</h2>
             <p>This tool allows you to track your mouse movements and download the coordinates as a CSV file.</p>
-            <img src="path/to/hero-image.jpg" alt="Mouse Coordinates Tracker">
         </div>
         <div class="features">
             <div class="feature">
-                <img src="path/to/feature1.jpg" alt="Feature 1">
                 <h3>Real-Time Tracking</h3>
                 <p>Track your mouse movements in real-time and see the coordinates update as you move.</p>
             </div>
             <div class="feature">
-                <img src="path/to/feature2.jpg" alt="Feature 2">
                 <h3>Easy to Use</h3>
                 <p>Simply click to select coordinates and download them as a CSV file with ease.</p>
             </div>
             <div class="feature">
-                <img src="path/to/feature3.jpg" alt="Feature 3">
                 <h3>Free and Accessible</h3>
                 <p>Our tool is free to use and accessible from any device with a web browser.</p>
             </div>
