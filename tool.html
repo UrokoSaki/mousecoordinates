@@ -18,9 +18,6 @@
     <meta name="twitter:description" content="Use the Mouse Coordinates Tracker tool to track mouse movements and download coordinates as a CSV file.">
     <meta name="twitter:image" content="path/to/logo.jpg">
     
-    <!-- Canonical Tag -->
-    <link rel="canonical" href="https://yourwebsite.com/tool.html">
-    
     <link rel="stylesheet" href="style.css">
     <style>
         .center-content {
@@ -28,8 +25,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 250px);
-            margin-top: -100px;
+            min-height: calc(100vh - 250px); /* Adjust this value based on the height of your header and footer */
+            margin-top: -100px; /* Move content slightly upwards if needed */
         }
 
         .button {
@@ -49,6 +46,11 @@
 </head>
 <body>
     <header>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <h1>Mouse Coordinates Tracker</h1>
         <nav>
             <ul>
@@ -78,6 +80,11 @@
     <footer class="footer">
         <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
     </footer>
+    <script>
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
