@@ -26,6 +26,54 @@
         .content {
             margin-top: 60px; /* Adjust this value as needed */
             text-align: center; /* Center content */
+            padding: 20px;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background-color: #2196F3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .contact-form button:hover {
+            background-color: #1976D2;
+        }
+        .contact-info {
+            margin-top: 40px;
+        }
+        .contact-info p {
+            margin: 10px 0;
+        }
+        .social-media {
+            margin-top: 20px;
+        }
+        .social-media a {
+            margin: 0 10px;
+            font-size: 24px;
+            color: #2196F3;
+            text-decoration: none;
+        }
+        .social-media a:hover {
+            color: #1976D2;
         }
     </style>
 </head>
@@ -49,7 +97,32 @@
     <main class="content">
         <div class="description">
             <h2>Contact Us</h2>
-            <p>If you have any questions, feel free to contact us.</p>
+            <p>If you have any questions, feel free to contact us using the form below or through our contact information.</p>
+        </div>
+        <div class="contact-form">
+            <form action="submit_contact_form.php" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p>Email: info@mousecoordinatetracker.com</p>
+            <p>Phone: +1 234 567 890</p>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
     </main>
     <footer class="footer">
@@ -60,5 +133,7 @@
             document.querySelector('nav').classList.toggle('active');
         }
     </script>
+    <!-- Font Awesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
