@@ -18,20 +18,22 @@
     <meta name="twitter:description" content="Track your mouse movements and download coordinates as a CSV file.">
     <meta name="twitter:image" content="path/to/logo.jpg">
 
-<!-- Google AdSense Code -->
-<script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721103073708194" crossorigin="anonymous"></script>
-
-<!-- Google Analytics Code -->
-<script async defer src="https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PL3BED75VK');
-</script>
-
-
+    <!-- Preload CSS -->
+    <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google AdSense Code -->
+    <script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721103073708194" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics Code -->
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PL3BED75VK');
+    </script>
+
     <style>
         body, html {
             margin: 0;
@@ -283,22 +285,21 @@
         <div class="call-to-action">
             <button onclick="window.location.href='tool.html'">Try the Tool Now</button>
         </div>
-        <div class="testimonials">
-            <h2>User Testimonials</h2>
-            <p>"This tool is incredibly useful for tracking mouse movements. Highly recommend!" - Jane Doe</p>
-            <p>"A must-have tool for web developers. Simple and efficient." - John Smith</p>
-            <p>"The Mouse Coordinates Tracker has been a game-changer for my design projects." - Sarah Lee</p>
-        </div>
-    </main>
-    <footer class="footer">
-        <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
-    </footer>
-        <script>
-        function toggleMenu() {
-            document.querySelector('nav').classList.toggle('active');
-        }
-    </script>
-    <script src="script.js"></script>
+      <div class="testimonials">
+    <h2>User Testimonials</h2>
+    <p>"This tool is incredibly useful for tracking mouse movements. Highly recommend!" - Jane Doe</p>
+    <p>"A must-have tool for web developers. Simple and efficient." - John Smith</p>
+    <p>"The Mouse Coordinates Tracker has been a game-changer for my design projects." - Sarah Lee</p>
+</div>
+</main>
+<footer class="footer">
+    <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+</footer>
+<script>
+    function toggleMenu() {
+        document.querySelector('nav').classList.toggle('active');
+    }
+</script>
+<script src="script.js" defer></script>
 </body>
 </html>
-
