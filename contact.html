@@ -148,7 +148,21 @@
             document.querySelector('nav').classList.toggle('active');
         }
     </script>
-    <!-- Font Awesome for social media icons -->
-    <script defer src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Lazy-load Font Awesome -->
+    <script>
+        function loadFontAwesome() {
+            var faScript = document.createElement('script');
+            faScript.src = 'https://kit.fontawesome.com/a076d05399.js';
+            faScript.crossOrigin = 'anonymous';
+            faScript.defer = true;
+            document.body.appendChild(faScript);
+        }
+
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadFontAwesome);
+        } else {
+            setTimeout(loadFontAwesome, 2000);
+        }
+    </script>
 </body>
 </html>
