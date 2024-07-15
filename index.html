@@ -7,7 +7,7 @@
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="Welcome to Mouse Coordinates Tracker! Track your mouse movements and download coordinates as a CSV file.">
-    <meta name="keywords" content="mouse coordinates, mouse position, find mouse coordinates, track mouse movements, mouse cursor position, Mouse Tracker, CSV Download">
+    <meta name="keywords" content="mouse coordinates, mouse position, find mouse coordinates, track mouse movements, mouse cursor position, mouse coordinates viewer, mouse location finder, mouse location tracker, track mouse position, track mouse coordinates, monitor mouse coordinates, mouse coordinate logger, mouse coordinate history, mouse coordinate download, Mouse Tracker, CSV Download">
     <meta name="author" content="Benny Acka">
     <meta property="og:title" content="Mouse Coordinates Tracker">
     <meta property="og:description" content="Track your mouse movements and download coordinates as a CSV file.">
@@ -91,6 +91,21 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-PL3BED75VK');
+    </script>
+    <!-- Lazy-load GTM -->
+    <script>
+        function loadGTM() {
+            var gtm = document.createElement('script');
+            gtm.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
+            gtm.async = true;
+            document.head.appendChild(gtm);
+        }
+
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadGTM);
+        } else {
+            setTimeout(loadGTM, 2000);
+        }
     </script>
 </body>
 </html>
