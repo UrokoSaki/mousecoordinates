@@ -111,15 +111,15 @@ nav ul li a:hover {
 .call-to-action button {
     padding: 15px 30px;
     font-size: 18px;
-    background-color: #2196F3;
-    color: #fff;
+    background-color: #0056b3; /* Darker blue for better contrast */
+    color: #ffffff; /* White text */
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .call-to-action button:hover {
-    background-color: #1976D2;
+    background-color: #004494; /* Adjusted hover color */
 }
 
 .testimonials {
