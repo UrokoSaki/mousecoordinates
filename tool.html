@@ -63,6 +63,27 @@
         }
     </script>
 
+    <!-- Lazy-load Google Tag Manager -->
+    <script>
+        function loadGTM() {
+            var gtmScript = document.createElement('script');
+            gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
+            gtmScript.defer = true;
+            document.body.appendChild(gtmScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PL3BED75VK');
+        }
+
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadGTM);
+        } else {
+            setTimeout(loadGTM, 2000);
+        }
+    </script>
+
     <link rel="stylesheet" href="style.css">
     <style>
         .center-content {
