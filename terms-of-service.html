@@ -8,48 +8,6 @@
     <!-- Canonical Tag -->
     <link rel="canonical" href="https://mousecoordinates.com/terms-of-service.html">
 
-    <!-- Lazy-load Google Analytics Code -->
-    <script>
-        function loadAnalytics() {
-            var gaScript = document.createElement('script');
-            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
-            gaScript.defer = true;
-            document.head.appendChild(gaScript);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-PL3BED75VK');
-        }
-
-        if (window.requestIdleCallback) {
-            requestIdleCallback(loadAnalytics);
-        } else {
-            setTimeout(loadAnalytics, 2000);
-        }
-    </script>
-
-    <!-- Lazy-load Google Tag Manager -->
-    <script>
-        function loadGTM() {
-            var gtmScript = document.createElement('script');
-            gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
-            gtmScript.defer = true;
-            document.head.appendChild(gtmScript);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-PL3BED75VK');
-        }
-
-        if (window.requestIdleCallback) {
-            requestIdleCallback(loadGTM);
-        } else {
-            setTimeout(loadGTM, 2000);
-        }
-    </script>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -82,5 +40,47 @@
         <h2>Privacy Policy</h2>
         <p>For information about how we collect and use information about users of the Service, please check out our privacy policy available at [Link to Privacy Policy].</p>
     </div>
+
+    <!-- Lazy-load Google Analytics Code -->
+    <script>
+        function loadAnalytics() {
+            var gaScript = document.createElement('script');
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
+            gaScript.async = true;
+            document.body.appendChild(gaScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PL3BED75VK');
+        }
+
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadAnalytics);
+        } else {
+            setTimeout(loadAnalytics, 2000);
+        }
+    </script>
+
+    <!-- Lazy-load Google Tag Manager -->
+    <script>
+        function loadGTM() {
+            var gtmScript = document.createElement('script');
+            gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
+            gtmScript.async = true;
+            document.body.appendChild(gtmScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PL3BED75VK');
+        }
+
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadGTM);
+        } else {
+            setTimeout(loadGTM, 2000);
+        }
+    </script>
 </body>
 </html>
