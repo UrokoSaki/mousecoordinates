@@ -24,44 +24,6 @@
     <!-- Preload CSS -->
     <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
-
-    <!-- Lazy-load AdSense Code -->
-    <script>
-        function loadAdSense() {
-            var ads = document.createElement('script');
-            ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721103073708194';
-            ads.crossOrigin = 'anonymous';
-            ads.defer = true;
-            document.body.appendChild(ads);
-        }
-
-        if (window.requestIdleCallback) {
-            requestIdleCallback(loadAdSense);
-        } else {
-            setTimeout(loadAdSense, 2000);
-        }
-    </script>
-
-    <!-- Lazy-load GTM -->
-    <script>
-        function loadGTM() {
-            var gtm = document.createElement('script');
-            gtm.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
-            gtm.defer = true;
-            document.body.appendChild(gtm);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-PL3BED75VK');
-        }
-
-        if (window.requestIdleCallback) {
-            requestIdleCallback(loadGTM);
-        } else {
-            setTimeout(loadGTM, 2000);
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -119,5 +81,43 @@
         }
     </script>
     <script src="script.js" defer></script>
+
+    <!-- Lazy-load AdSense Code -->
+    <script>
+        function loadAdSense() {
+            var ads = document.createElement('script');
+            ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721103073708194';
+            ads.crossOrigin = 'anonymous';
+            ads.defer = true;
+            document.body.appendChild(ads);
+        }
+
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadAdSense);
+        } else {
+            setTimeout(loadAdSense, 2000);
+        }
+    </script>
+
+    <!-- Lazy-load GTM -->
+    <script>
+        function loadGTM() {
+            var gtm = document.createElement('script');
+            gtm.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
+            gtm.defer = true;
+            document.body.appendChild(gtm);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PL3BED75VK');
+        }
+
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadGTM);
+        } else {
+            setTimeout(loadGTM, 2000);
+        }
+    </script>
 </body>
 </html>
