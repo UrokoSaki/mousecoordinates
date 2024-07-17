@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let coordinates = [];
     let selectingCoordinates = false;
+    let requestId = null;
 
     const trackMovementButton = document.getElementById('trackMovementButton');
     const selectByClickButton = document.getElementById('selectByClickButton');
@@ -11,10 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const yCoord = document.getElementById("Y");
 
     if (trackMovementButton) {
-        trackMovementButton.addEventListener('click', () => {
-            coordinatesDisplay.style.display = "block";
-            document.addEventListener('mousemove', updateMousePosition);
-        });
+        trackMovementButton.addEventListener('click', startTracking);
+    }
+
+    function startTracking() {
+        coordinatesDisplay.style.display = "block";
+        document.addEventListener('mousemove', onMouseMove);
+    }
+
+    function onMouseMove(event) {
+        if (!requestId) {
+            requestId = requestAnimationFrame(() => {
+                updateMousePosition(event);
+                requestId = null;
+            });
+        }
     }
 
     function updateMousePosition(event) {
@@ -23,11 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (selectByClickButton) {
-        selectByClickButton.addEventListener('click', () => {
-            selectingCoordinates = true;
-            clickSelectionInstructions.style.display = "block";
-            downloadButton.style.display = "block";
-        });
+        selectByClickButton.addEventListener('click', startSelecting);
+    }
+
+    function startSelecting() {
+        selectingCoordinates = true;
+        clickSelectionInstructions.style.display = "block";
+        downloadButton.style.display = "block";
     }
 
     document.addEventListener('click', (event) => {
@@ -35,23 +49,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const x = event.clientX;
             const y = event.clientY;
             coordinates.push({ x, y });
-            coordinatesDisplay.style.display = "block";
-            xCoord.innerText = "Selected X-coordinate: " + x;
-            yCoord.innerText = "Selected Y-coordinate: " + y;
+            updateSelectedCoordinatesDisplay(x, y);
         }
     });
 
+    function updateSelectedCoordinatesDisplay(x, y) {
+        coordinatesDisplay.style.display = "block";
+        xCoord.innerText = "Selected X-coordinate: " + x;
+        yCoord.innerText = "Selected Y-coordinate: " + y;
+    }
+
     if (downloadButton) {
-        downloadButton.addEventListener('click', () => {
-            const csvContent = "data:text/csv;charset=utf-8,X Coordinate,Y Coordinate\n" +
-                coordinates.map(coord => `${coord.x},${coord.y}`).join('\n');
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "selected_coordinates.csv");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
+        downloadButton.addEventListener('click', downloadCoordinates);
+    }
+
+    function downloadCoordinates() {
+        const csvContent = "data:text/csv;charset=utf-8,X Coordinate,Y Coordinate\n" +
+            coordinates.map(coord => `${coord.x},${coord.y}`).join('\n');
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "selected_coordinates.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 });
