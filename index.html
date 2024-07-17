@@ -31,8 +31,8 @@
             var ads = document.createElement('script');
             ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721103073708194';
             ads.crossOrigin = 'anonymous';
-            ads.async = true;
-            document.head.appendChild(ads);
+            ads.defer = true;
+            document.body.appendChild(ads);
         }
 
         if (window.requestIdleCallback) {
@@ -42,13 +42,13 @@
         }
     </script>
 
-    <!-- Lazy-load Google Analytics Code -->
+    <!-- Lazy-load GTM -->
     <script>
-        function loadAnalytics() {
-            var gaScript = document.createElement('script');
-            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
-            gaScript.defer = true;
-            document.head.appendChild(gaScript);
+        function loadGTM() {
+            var gtm = document.createElement('script');
+            gtm.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
+            gtm.defer = true;
+            document.body.appendChild(gtm);
 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -57,9 +57,9 @@
         }
 
         if (window.requestIdleCallback) {
-            requestIdleCallback(loadAnalytics);
+            requestIdleCallback(loadGTM);
         } else {
-            setTimeout(loadAnalytics, 2000);
+            setTimeout(loadGTM, 2000);
         }
     </script>
 </head>
@@ -112,6 +112,7 @@
     <footer class="footer">
         <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
     </footer>
+
     <script defer>
         function toggleMenu() {
             document.querySelector('nav').classList.toggle('active');
