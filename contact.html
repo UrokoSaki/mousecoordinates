@@ -24,14 +24,14 @@
     <!-- Preload CSS -->
     <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
-
+    
     <!-- Lazy-load AdSense Code -->
     <script>
         function loadAdSense() {
             var ads = document.createElement('script');
             ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721103073708194';
             ads.crossOrigin = 'anonymous';
-            ads.defer = true;
+            ads.async = true;
             document.head.appendChild(ads);
         }
 
@@ -49,11 +49,6 @@
             gtm.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
             gtm.async = true;
             document.head.appendChild(gtm);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-PL3BED75VK');
         }
 
         if (window.requestIdleCallback) {
@@ -62,7 +57,7 @@
             setTimeout(loadGTM, 2000);
         }
     </script>
-    
+
     <link rel="stylesheet" href="style.css">
     <style>
         .content {
@@ -184,7 +179,7 @@
             var faScript = document.createElement('script');
             faScript.src = 'https://kit.fontawesome.com/a076d05399.js';
             faScript.crossOrigin = 'anonymous';
-            faScript.defer = true;
+            faScript.async = true;
             document.body.appendChild(faScript);
         }
 
