@@ -8,48 +8,6 @@
     <!-- Canonical Tag -->
     <link rel="canonical" href="https://mousecoordinates.com/privacy-policy.html">
 
-    <!-- Lazy-load Google Analytics Code -->
-    <script>
-        function loadAnalytics() {
-            var gaScript = document.createElement('script');
-            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
-            gaScript.defer = true;
-            document.head.appendChild(gaScript);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-PL3BED75VK');
-        }
-
-        if (window.requestIdleCallback) {
-            requestIdleCallback(loadAnalytics);
-        } else {
-            setTimeout(loadAnalytics, 2000);
-        }
-    </script>
-
-    <!-- Lazy-load Google Tag Manager -->
-    <script>
-        function loadGTM() {
-            var gtmScript = document.createElement('script');
-            gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
-            gtmScript.defer = true;
-            document.head.appendChild(gtmScript);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-PL3BED75VK');
-        }
-
-        if (window.requestIdleCallback) {
-            requestIdleCallback(loadGTM);
-        } else {
-            setTimeout(loadGTM, 2000);
-        }
-    </script>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -82,5 +40,47 @@
         <h2>Sharing Your Information</h2>
         <p>We share your personal data with your consent or as necessary to complete any transaction or provide any service you have requested or authorized. We also share data with affiliates and subsidiaries, with vendors working on our behalf, when required by law, or to respond to legal process, to protect our customers, to protect lives, to maintain the security of our services, and to protect the rights or property of our company.</p>
     </div>
+
+    <!-- Lazy-load Google Analytics Code -->
+    <script>
+        function loadAnalytics() {
+            var gaScript = document.createElement('script');
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
+            gaScript.async = true;
+            document.head.appendChild(gaScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PL3BED75VK');
+        }
+
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadAnalytics);
+        } else {
+            setTimeout(loadAnalytics, 2000);
+        }
+    </script>
+
+    <!-- Lazy-load Google Tag Manager -->
+    <script>
+        function loadGTM() {
+            var gtmScript = document.createElement('script');
+            gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PL3BED75VK');
+        }
+
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadGTM);
+        } else {
+            setTimeout(loadGTM, 2000);
+        }
+    </script>
 </body>
 </html>
