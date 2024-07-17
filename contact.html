@@ -31,7 +31,7 @@
             var ads = document.createElement('script');
             ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721103073708194';
             ads.crossOrigin = 'anonymous';
-            ads.async = true;
+            ads.defer = true;
             document.head.appendChild(ads);
         }
 
@@ -49,6 +49,11 @@
             gtm.src = 'https://www.googletagmanager.com/gtag/js?id=G-PL3BED75VK';
             gtm.async = true;
             document.head.appendChild(gtm);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PL3BED75VK');
         }
 
         if (window.requestIdleCallback) {
